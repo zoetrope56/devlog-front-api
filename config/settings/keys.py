@@ -15,3 +15,5 @@ CONST_DB_USER = conf['DB']['USER']
 CONST_DB_PW = conf['DB']['PW']
 CONST_DB_NAME = conf['DB']['DB_NAME']
 CONST_DB_CHARSET = conf['DB']['CHARSET']
+
+SECRETKEY = conf['SECRET_KEY']

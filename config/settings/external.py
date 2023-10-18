@@ -13,3 +13,6 @@ DATABASES = {
         },
     }
 }
+
+SECRET_KEY = SECRETKEY
+

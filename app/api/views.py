@@ -8,6 +8,11 @@ from . import models, serializers
 class ContentsViewSet(viewsets.ModelViewSet):
     queryset = models.Contents.objects.all()
     serializer_class = serializers.ContentSerailizer
-        # return Response(serializer.data)
 
-# contents_list_view = ContentsViewSet.as_view()
+class TagViewSet(viewsets.ModelViewSet):
+    queryset = models.Tags.objects.all()
+    serializer_class = serializers.TagSerializer
+
+class FileViewSet(viewsets.ModelViewSet):
+    queryset = models.File.objects.all()
+    serializer_class = serializers.FileSerializer

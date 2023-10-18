@@ -1,10 +1,13 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
-from . import views
+from .views import ContentsViewSet, FileViewSet, TagViewSet
 
 router = DefaultRouter()
-router.register(r'contents', views.ContentsViewSet)
+
+router.register(r'contents', ContentsViewSet)
+router.register(r'file', FileViewSet)
+router.register(r'tags', TagViewSet)
+
 urlpatterns = [
-    path('', include(router.urls)),
-    # path('contents/', views.contents_list_view),  # 👈 localhost:8000/public
+    path('', include(router.urls))
 ]
