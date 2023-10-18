@@ -1,10 +1,11 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
-from .views import ContentsViewSet, FileViewSet, TagViewSet
+from .views import ContentsViewSet, ContentsDetailViewSet, FileViewSet, TagViewSet
 
 router = DefaultRouter()
 
 router.register(r'contents', ContentsViewSet)
+router.register(r'content', ContentsDetailViewSet)
 router.register(r'file', FileViewSet)
 router.register(r'tags', TagViewSet)
 
