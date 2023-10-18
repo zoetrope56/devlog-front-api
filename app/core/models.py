@@ -7,4 +7,4 @@ class TimestampedModel(models.Model):
 
     class Meta:
         abstract = True
-        ordering = ['-datetime_update', '-datetime_created']
+        ordering = ['upd_dttm', 'inp_dttm']
