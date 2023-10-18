@@ -3,7 +3,7 @@ from app.api import models
 
 class ContentSerailizer(serializers.ModelSerializer):
     class Meta:
-        model = models.Contents
+        model = models.Content
         fields = '__all__'
 
 class UserSerializer(serializers.ModelSerializer):
@@ -13,7 +13,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
-        model = models.Tags
+        model = models.Tag
         fields = '__all__'
 
 class FileSerializer(serializers.ModelSerializer):

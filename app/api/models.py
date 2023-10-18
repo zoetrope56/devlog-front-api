@@ -24,7 +24,7 @@ class ContentsDetail(TimestampedModel):
         db_table_comment = '컨텐츠 상세정보 테이블'
 
 
-class Contents(TimestampedModel):
+class Content(TimestampedModel):
     ctnt_no = models.AutoField(db_column='CTNT_NO', primary_key=True, db_comment='콘텐츠 번호')  # Field name made lowercase.
     ctnt_title = models.CharField(db_column='CTNT_TITLE', max_length=100, blank=True, null=True, db_comment='콘텐츠 제목')  # Field name made lowercase.
     ctnt_subtitle = models.CharField(db_column='CTNT_SUBTITLE', max_length=150, blank=True, null=True, db_comment='콘텐츠 소제목')  # Field name made lowercase.
@@ -38,7 +38,7 @@ class Contents(TimestampedModel):
         db_table_comment = '컨텐츠 정보 테이블'
 
 
-class ContentsTags(models.Model):
+class ContentsTag(models.Model):
     tag_no = models.AutoField(db_column='TAG_NO', primary_key=True, db_comment='태그 번호')  # Field name made lowercase.
     ctnt_no = models.IntegerField(db_column='CTNT_NO', blank=True, null=True, db_comment='콘텐츠 번호')  # Field name made lowercase.
     sort = models.IntegerField(db_column='SORT', blank=True, null=True, db_comment='태그 정렬 순서')  # Field name made lowercase.
@@ -63,7 +63,7 @@ class File(TimestampedModel):
         db_table_comment = '컨텐츠 첨부파일 정보 테이블'
 
 
-class Tags(TimestampedModel):
+class Tag(TimestampedModel):
     tag_no = models.AutoField(db_column='TAG_NO', primary_key=True, db_comment='태그 번호')  # Field name made lowercase.
     tag_name = models.CharField(db_column='TAG_NAME', max_length=15, blank=True, null=True, db_comment='태그 이름')  # Field name made lowercase.
     # inp_dttm = models.DateTimeField(db_column='INP_DTTM', blank=True, null=True, db_comment='입력일시')  # Field name made lowercase.

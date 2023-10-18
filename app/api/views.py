@@ -6,11 +6,11 @@ from . import models, serializers
 
 # Create your views here.
 class ContentsViewSet(viewsets.ModelViewSet):
-    queryset = models.Contents.objects.all()
+    queryset = models.Content.objects.all()
     serializer_class = serializers.ContentSerailizer
 
 class TagViewSet(viewsets.ModelViewSet):
-    queryset = models.Tags.objects.all()
+    queryset = models.Tag.objects.all()
     serializer_class = serializers.TagSerializer
 
 class FileViewSet(viewsets.ModelViewSet):
