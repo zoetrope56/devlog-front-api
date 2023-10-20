@@ -7,7 +7,7 @@ from .pagination import Pagination
 
 # Create your views here.
 
-class ContentsViewSet(viewsets.ReadOnlyModelViewSet):
+class ContentsView(generics.ListAPIView):
     queryset = models.Content.objects.all()
     serializer_class = serializers.ContentSerailizer
     pagination_class = Pagination 
@@ -17,6 +17,10 @@ class ContentsDetailViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.ContentDetailSerailizer
     pagination_class = None
 
+class ContentsTagViewSet(viewsets.ModelViewSet):
+    queryset = models.ContentsTag.objects.all()
+    serializer_class = serializers.ContentsTagSerializer
+    pagination_class = None
 
 class TagViewSet(viewsets.ModelViewSet):
     queryset = models.Tag.objects.all()
