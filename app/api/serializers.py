@@ -13,6 +13,10 @@ class ContentDetailSerailizer(serializers.ModelSerializer):
         model = models.ContentsDetail
         fields = '__all__'
 
+class ContentsTagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.ContentsTag
+        fields = '__all__'
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:

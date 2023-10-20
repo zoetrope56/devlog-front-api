@@ -52,24 +52,6 @@ class ContentsDetail(Content):
         db_table = 'contents_dtl'
         db_table_comment = '컨텐츠 상세정보 테이블'
 
-
-class ContentsTag(models.Model):
-    # Field name made lowercase.
-    tag_no = models.AutoField(
-        db_column='TAG_NO', primary_key=True, db_comment='태그 번호')
-    # Field name made lowercase.
-    ctnt_no = models.IntegerField(
-        db_column='CTNT_NO', blank=True, null=True, db_comment='콘텐츠 번호')
-    # Field name made lowercase.
-    sort = models.IntegerField(
-        db_column='SORT', blank=True, null=True, db_comment='태그 정렬 순서')
-
-    class Meta:
-        managed = False
-        db_table = 'contents_tags'
-        db_table_comment = '컨텐츠 태그 정보 테이블'
-
-
 class File(TimestampedModel):
     # Field name made lowercase.
     file_no = models.AutoField(
@@ -109,6 +91,23 @@ class Tag(TimestampedModel):
         managed = False
         db_table = 'tags_mst'
         db_table_comment = '태그 정보 테이블'
+
+class ContentsTag(Tag):
+    # Field name made lowercase.
+    content_tag_no = models.OneToOneField(
+        Tag, on_delete=models.CASCADE, parent_link=True, db_column='TAG_NO', primary_key=True, db_comment='태그 번호')
+    # Field name made lowercase.
+    ctnt_no = models.IntegerField(
+        db_column='CTNT_NO', blank=True, null=True, db_comment='콘텐츠 번호')
+    # Field name made lowercase.
+    sort = models.IntegerField(
+        db_column='SORT', blank=True, null=True, db_comment='태그 정렬 순서')
+
+    class Meta:
+        managed = False
+        db_table = 'contents_tags'
+        db_table_comment = '컨텐츠 태그 정보 테이블'
+
 
 
 class User(TimestampedModel):
