@@ -1,6 +1,6 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
-from .views import ContentsViewSet, ContentsDetailViewSet, FileViewSet, TagViewSet, contentsListAPI
+from .views import ContentsViewSet, ContentsDetailViewSet, FileViewSet, TagViewSet
 
 router = DefaultRouter()
 
@@ -11,5 +11,5 @@ router.register(r'tags', TagViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('api/cont', contentsListAPI.as_view())
+    # path('api/cont', contentsListAPI.as_view())
 ]
