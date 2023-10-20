@@ -6,6 +6,11 @@ from . import models, serializers
 
 # Create your views here.
 
+class contentsListAPI(APIView):
+    def get(self, request):
+        contents = models.Content.objects.all()
+        serializer = serializers.ContentSerailizer(contents, Many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 class ContentsViewSet(viewsets.ModelViewSet):
     queryset = models.Content.objects.all()
