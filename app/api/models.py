@@ -21,7 +21,7 @@ class Content(TimestampedModel):
         db_column='CTNT_SUBTITLE', max_length=150, blank=True, null=True, db_comment='콘텐츠 소제목')
     # Field name made lowercase.
     inp_user = models.CharField(
-        db_column='INP_USER', max_length=30, blank=True, null=True, db_comment='생성자')
+        db_column='INP_USER', max_length=30, blank=True, null=True, db_comment='작성자')
     # inp_dttm = models.DateTimeField(db_column='INP_DTTM', blank=True, null=True, db_comment='입력일시')  # Field name made lowercase.
     # upd_dttm = models.DateTimeField(db_column='UPD_DTTM', blank=True, null=True, db_comment='수정일시')  # Field name made lowercase.
 
@@ -33,7 +33,16 @@ class Content(TimestampedModel):
 
 class ContentsDetail(Content):
     ctnt_dtl_no = models.OneToOneField(
-        Content, on_delete=models.CASCADE, parent_link=True, db_column='CTNT_NO', primary_key=True, db_comment='콘텐츠 번호')
+        Content, on_delete=models.CASCADE, parent_link=True, related_name='ctnt_dtl_n', db_column='CTNT_NO', primary_key=True, db_comment='콘텐츠 번호')
+    # Field name made lowercase.
+    ctnt_dtl_title = models.CharField(
+        db_column='CTNT_TITLE', max_length=100, blank=True, null=True, db_comment='콘텐츠 제목')
+    # Field name made lowercase.
+    ctnt_dtl_inp_user = models.CharField(
+        db_column='INP_USER', max_length=30, blank=True, null=True, db_comment='작성자')
+    # Field name made lowercase.
+    ctnt_body = models.TextField(
+        db_column='CTNT_BODY', max_length=5000, blank=True, null=True, db_comment='콘텐츠 내용')
     # Field name made lowercase.
     ctnt_path = models.CharField(
         db_column='CTNT_PATH', max_length=200, blank=True, null=True, db_comment='콘텐츠 파일 경로')
@@ -51,6 +60,12 @@ class ContentsDetail(Content):
         managed = False
         db_table = 'contents_dtl'
         db_table_comment = '컨텐츠 상세정보 테이블'
+
+    def save(self, *args, **kwargs):
+        self.ctnt_dtl_title = self.ctnt_title
+        self.ctnt_dtl_inp_user = self.inp_user
+        self.ctnt_subtitle = self.ctnt_body[0:15]
+        super().save(*args, **kwargs)
 
 class File(TimestampedModel):
     # Field name made lowercase.
@@ -92,6 +107,7 @@ class Tag(TimestampedModel):
         db_table = 'tags_mst'
         db_table_comment = '태그 정보 테이블'
 
+
 class ContentsTag(Tag):
     # Field name made lowercase.
     content_tag_no = models.OneToOneField(
@@ -107,7 +123,6 @@ class ContentsTag(Tag):
         managed = False
         db_table = 'contents_tags'
         db_table_comment = '컨텐츠 태그 정보 테이블'
-
 
 
 class User(TimestampedModel):
