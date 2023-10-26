@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'app.api',
     'app.authentication',
+    'django_tuieditor',
     'rest_framework',
     'corsheaders',
     'django_extensions',
