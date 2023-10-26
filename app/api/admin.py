@@ -8,5 +8,3 @@ admin.site.register(models.File)
 admin.site.register(models.Content)
 admin.site.register(models.ContentsDetail)
 admin.site.register(models.ContentsTag)
-
-icon = '<i class="material-icons">subject</i>'

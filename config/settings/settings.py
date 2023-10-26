@@ -131,6 +131,6 @@ REST_FRAMEWORK = {
     'DATETIME_FORMAT': "%Y-%m-%d %H:%M:%S",
 }
 
-LOGIN_REDIRECT_URL = 'ztlog/admin/'
+# LOGIN_REDIRECT_URL = ''
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
