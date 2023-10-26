@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'app.api',
     'app.authentication',
-    'django_tuieditor',
+    # 'django_tuieditor',
     'rest_framework',
     'corsheaders',
     'django_extensions',
@@ -133,6 +133,6 @@ REST_FRAMEWORK = {
     'DATETIME_FORMAT': "%Y-%m-%d %H:%M:%S",
 }
 
-# LOGIN_REDIRECT_URL = ''
+# LOGIN_REDIRECT_URL = 'ztlog/admin/'
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
