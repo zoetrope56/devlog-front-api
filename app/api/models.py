@@ -35,6 +35,8 @@ class ContentsDetail(Content):
     ctnt_dtl_no = models.OneToOneField(
         Content, on_delete=models.CASCADE, parent_link=True, db_column='CTNT_NO', primary_key=True, db_comment='콘텐츠 번호')
     # Field name made lowercase.
+    ctnt_body = models.CharField(
+        db_column='CTNT_BODY', max_length=5000, blank=True, null=True, db_comment='콘텐츠 내용')
     ctnt_path = models.CharField(
         db_column='CTNT_PATH', max_length=200, blank=True, null=True, db_comment='콘텐츠 파일 경로')
     # Field name made lowercase.

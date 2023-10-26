@@ -21,7 +21,7 @@ app_name = "config"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('admin_material.urls')),
+    path('ztlog/admin/', include('admin_material.urls')),
     path('api/', include('app.api.urls')),
     path('auth/', include('app.authentication.urls')),
     # path('auth/', include('app.authentication', namespace='auth'))
