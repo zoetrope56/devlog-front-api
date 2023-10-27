@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from . import models, serializers
 from .pagination import Pagination
-# from rest_framework.decorators import api_view
+from rest_framework.decorators import action
 
 # Create your views here.
 
