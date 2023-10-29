@@ -35,7 +35,7 @@ CORS_ALLOWED_ORIGINS = ['http://127.0.0.1:3000', 'http://localhost:3000', 'http:
 INSTALLED_APPS = [
     'app.api',
     'app.authentication',
-    # 'django_tuieditor',
+    'django_tuieditor',
     'rest_framework',
     'corsheaders',
     'django_extensions',
