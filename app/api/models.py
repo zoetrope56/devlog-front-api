@@ -7,7 +7,7 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 from app.core.models import TimestampedModel
-
+from django_tuieditor.models import MarkdownField
 
 class Content(TimestampedModel):
     # Field name made lowercase.
@@ -41,12 +41,8 @@ class ContentsDetail(Content):
     ctnt_dtl_inp_user = models.CharField(
         db_column='INP_USER', max_length=30, blank=True, null=True, db_comment='작성자')
     # Field name made lowercase.
-    ctnt_body = models.TextField(
-        db_column='CTNT_BODY', max_length=5000, blank=True, null=True, db_comment='콘텐츠 내용')
-    # Field name made lowercase.
-    ctnt_body = models.TextField(
-        db_column='CTNT_BODY', max_length=5000, blank=True, null=True, db_comment='콘텐츠 내용')
-    # Field name made lowercase.
+    ctnt_body = MarkdownField(blank=True, null=True)
+        # db_column='CTNT_BODY', max_length=5000, blank=True, null=True, db_comment='콘텐츠 내용')
     ctnt_path = models.CharField(
         db_column='CTNT_PATH', max_length=200, blank=True, null=True, db_comment='콘텐츠 파일 경로')
     # Field name made lowercase.
