@@ -8,7 +8,7 @@ from rest_framework.decorators import action
 # Create your views here.
 
 class ContentsView(generics.ListAPIView):
-    queryset = models.Content.objects.all()
+    queryset = models.Content.objects.all().order_by('-inp_dttm')
     serializer_class = serializers.ContentSerailizer
     pagination_class = Pagination 
 

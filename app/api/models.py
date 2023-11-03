@@ -63,7 +63,7 @@ class ContentsDetail(Content):
     def save(self, *args, **kwargs):
         self.ctnt_dtl_title = self.ctnt_title
         self.ctnt_dtl_inp_user = self.inp_user
-        self.ctnt_subtitle = self.ctnt_body[0:15]
+        self.ctnt_subtitle = self.ctnt_body[0:300].rstrip() + '...'
         super().save(*args, **kwargs)
 
 class File(TimestampedModel):

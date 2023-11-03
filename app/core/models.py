@@ -6,6 +6,6 @@ class TimestampedModel(models.Model):
 
     class Meta:
         abstract = True
-        ordering = ['upd_dttm', 'inp_dttm']
+        ordering = ['-inp_dttm']
 
         
