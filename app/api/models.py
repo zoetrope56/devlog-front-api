@@ -14,7 +14,7 @@ class Content(TimestampedModel):
     # Field name made lowercase.
     ctnt_no = models.AutoField(db_column='CTNT_NO', primary_key=True)
     ctnt_title = models.CharField(db_column='CTNT_TITLE', max_length=100, blank=True, null=True)
-    ctnt_subtitle = models.CharField(db_column='CTNT_SUBTITLE', max_length=300, blank=True, null=True)
+    ctnt_subtitle = models.CharField(db_column='CTNT_SUBTITLE', max_length=400, blank=True, null=True)
     inp_user = models.CharField(db_column='INP_USER', max_length=30, blank=True, null=True)
     
     class Meta:
@@ -41,7 +41,7 @@ class ContentsDetail(Content):
     def save(self, *args, **kwargs):
         self.ctnt_dtl_title = self.ctnt_title
         self.ctnt_dtl_inp_user = self.inp_user
-        self.ctnt_subtitle = self.ctnt_body[0:300].rstrip() + '...'
+        self.ctnt_subtitle = self.ctnt_body[0:150].rstrip() + '...더보기...'
         super().save(*args, **kwargs)
 
 class File(TimestampedModel):
