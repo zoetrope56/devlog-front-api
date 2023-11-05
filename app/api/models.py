@@ -14,7 +14,7 @@ class Content(TimestampedModel):
     # Field name made lowercase.
     ctnt_no = models.AutoField(db_column='CTNT_NO', primary_key=True)
     ctnt_title = models.CharField(db_column='CTNT_TITLE', max_length=100, blank=True, null=True)
-    ctnt_subtitle = models.CharField(db_column='CTNT_SUBTITLE', max_length=150, blank=True, null=True)
+    ctnt_subtitle = models.CharField(db_column='CTNT_SUBTITLE', max_length=300, blank=True, null=True)
     inp_user = models.CharField(db_column='INP_USER', max_length=30, blank=True, null=True)
     
     class Meta:
