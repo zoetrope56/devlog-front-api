@@ -41,7 +41,11 @@ class ContentsDetail(Content):
     def save(self, *args, **kwargs):
         self.ctnt_dtl_title = self.ctnt_title
         self.ctnt_dtl_inp_user = self.inp_user
+<<<<<<< HEAD
         self.ctnt_subtitle = self.ctnt_body[0:120].rstrip() + '...더보기...'
+=======
+        self.ctnt_subtitle = self.ctnt_body[0:150].rstrip() + '...더보기...'
+>>>>>>> d11e5cb5f8900a7ee60cc2e16715bed4cdc40045
         super().save(*args, **kwargs)
 
 class File(TimestampedModel):
