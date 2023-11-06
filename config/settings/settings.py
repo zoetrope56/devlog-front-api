@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['3.38.255.56', '211.36.133.80', 'localhost']
+ALLOWED_HOSTS = ['localhost', 'ztlogapi.com', 'ztlog.io']
 
-CORS_ALLOWED_ORIGINS = ['http://127.0.0.1:3000', 'http://localhost:3000', 'http://127.0.0.1:8000', 'http://localhost:8000']
+CORS_ALLOWED_ORIGINS = ['http://3.38.255.56:8000', 'https://ztlog.io', 'http://182.219.37.180:3000', 'http://localhost:3000']
 
 # Application definition
 
@@ -127,7 +127,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ORIGIN_WHITELIST = ('http://127.0.0.1:3000', 'http://localhost:3000')
+CORS_ORIGIN_WHITELIST = ('http://3.38.255.56:8000','https://ztlog.io')
 
 CORS_ALLOW_CREDENTIALS = True
 
