@@ -81,6 +81,7 @@ class ContentsTag(Tag):
     class Meta:
         # managed = False
         db_table = 'contents_tags'
+        ordering = ['sort']
         # db_table_comment = '컨텐츠 태그 정보 테이블's
 
 
