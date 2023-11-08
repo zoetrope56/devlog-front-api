@@ -18,7 +18,7 @@ class Content(TimestampedModel):
     inp_user = models.CharField(db_column='INP_USER', max_length=30, blank=True, null=True)
     
     class Meta:
-        # managed = False
+        managed = False
         db_table = 'contents_mst'
         # db_table_comment = '컨텐츠 정보 테이블'
 
@@ -28,13 +28,13 @@ class ContentsDetail(Content):
     ctnt_dtl_no = models.OneToOneField(Content, on_delete=models.CASCADE, parent_link=True, related_name='ctnt_mst', db_column='CTNT_NO', primary_key=True)
     ctnt_dtl_title = models.CharField(db_column='CTNT_TITLE', max_length=100, blank=True, null=True)
     ctnt_dtl_inp_user = models.CharField(db_column='INP_USER', max_length=300, blank=True, null=True)
-    ctnt_body = MarkdownField(blank=True, null=True) # db_column='CTNT_BODY', max_length=5000, blank=True, null=True, db_comment='콘텐츠 내용')
+    ctnt_body = MarkdownField(db_column='CTNT_BODY', blank=True, null=True) # db_column='CTNT_BODY', max_length=5000, blank=True, null=True, db_comment='콘텐츠 내용')
     ctnt_path = models.CharField(db_column='CTNT_PATH', max_length=200, blank=True, null=True)
     ctnt_name = models.CharField(db_column='CTNT_NAME', max_length=200, blank=True, null=True)
     ctnt_ext = models.CharField(db_column='CTNT_EXT', max_length=200, blank=True, null=True)
     
     class Meta:
-        # managed = False
+        managed = False
         db_table = 'contents_dtl'
         # db_table_comment = '컨텐츠 상세정보 테이블'
 
@@ -53,7 +53,7 @@ class File(TimestampedModel):
     ctnt_no = models.ForeignKey(Content, on_delete=models.CASCADE, db_column='CTNT_NO', blank=True, null=True)
     
     class Meta:
-        # managed = False
+        managed = False
         db_table = 'file_mst'
         # db_table_comment = '컨텐츠 첨부파일 정보 테이블'
 
@@ -64,7 +64,7 @@ class Tag(TimestampedModel):
     tag_name = models.CharField(db_column='TAG_NAME', max_length=15, blank=True, null=True)
 
     class Meta:
-        # managed = False
+        managed = False
         db_table = 'tags_mst'
         # db_table_comment = '태그 정보 테이블'
 
@@ -79,7 +79,7 @@ class ContentsTag(Tag):
     sort = models.IntegerField(db_column='SORT', blank=True, null=True)
 
     class Meta:
-        # managed = False
+        managed = False
         db_table = 'contents_tags'
         ordering = ['sort']
         # db_table_comment = '컨텐츠 태그 정보 테이블's
@@ -93,6 +93,6 @@ class User(TimestampedModel):
     grant = models.CharField(db_column='GRANT', max_length=10, blank=True, null=True)
     
     class Meta:
-        # managed = False
+        managed = False
         db_table = 'user_mst'
         # db_table_comment = '사용자 정보 테이블'
