@@ -136,6 +136,9 @@ REST_FRAMEWORK = {
     'DATETIME_FORMAT': "%Y-%m-%d %H:%M:%S",
 }
 
+CSRF_TRUSTED_ORIGINS = ['https://ztlog.io', 'https://ztlogapi.com']
+
+
 # LOGIN_REDIRECT_URL = 'ztlog/admin/'
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
