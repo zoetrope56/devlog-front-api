@@ -28,16 +28,16 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'ztlogapi.com', 'ztlog.io']
 
-CORS_ALLOWED_ORIGINS = ['http://3.38.255.56:8000', 'https://ztlog.io', 'http://182.219.37.180:3000', 'http://localhost:3000']
+CORS_ALLOWED_ORIGINS = ['https://ztlog.io', 'http://localhost:3000']
 
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'app.api',
     'app.authentication',
     'django_tuieditor',
     'rest_framework',
-    'corsheaders',
     'django_extensions',
     'django.contrib.admin',
     'admin_material.apps.AdminMaterialDashboardConfig',
@@ -127,7 +127,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ORIGIN_WHITELIST = ('http://3.38.255.56:8000','https://ztlog.io', 'http://localhost:3000')
+CORS_ORIGIN_WHITELIST = ('http://3.38.255.56:8000',
+                         'https://ztlog.io', 'http://localhost:3000')
 
 CORS_ALLOW_CREDENTIALS = True
 
