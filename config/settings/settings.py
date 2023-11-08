@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'ztlogapi.com', 'ztlog.io', '172.31.9.61', '3.38.255.56']
+ALLOWED_HOSTS = ['localhost', 'ztlogapi.com', 'ztlog.io', '172.31.9.61', '3.38.255.56', '3.38.21.100']
 
 CORS_ALLOWED_ORIGINS = ['https://ztlog.io', 'http://localhost:3000']
 
