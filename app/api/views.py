@@ -1,9 +1,7 @@
 from rest_framework import viewsets, permissions, generics, status
-from rest_framework.response import Response
-from rest_framework.views import APIView
 from . import models, serializers
 from .pagination import Pagination
-from rest_framework.decorators import action
+from django.db.models import Count
 
 # Create your views here.
 
@@ -23,7 +21,7 @@ class ContentsTagViewSet(viewsets.ModelViewSet):
     pagination_class = None
 
 class TagViewSet(viewsets.ModelViewSet):
-    queryset = models.Tag.objects.all()
+    queryset = models.Tag.objects.annotate(tag_count=Count('tags_set')).values('tag_no','tag_name', 'tag_count').order_by('tag_no')
     serializer_class = serializers.TagSerializer
     pagination_class = None
 
