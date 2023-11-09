@@ -36,8 +36,14 @@ class UserSerializer(serializers.ModelSerializer):
         model = models.User
         fields = '__all__'
 
+class ContentsTagCountSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.ContentsTag
+        fields = ['tag_no', 'content']
 
 class TagSerializer(serializers.ModelSerializer):
+    tags_set = ContentsTagCountSerializer()
+    
     class Meta:
         model = models.Tag
         fields = '__all__'

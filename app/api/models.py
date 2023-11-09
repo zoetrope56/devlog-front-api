@@ -74,7 +74,7 @@ class Tag(TimestampedModel):
 
 class ContentsTag(Tag):
     # Field name made lowercase.
-    content_tag_no = models.OneToOneField(Tag, on_delete=models.CASCADE, parent_link=True, db_column='TAG_NO', primary_key=True)
+    content_tag_no = models.OneToOneField(Tag, on_delete=models.CASCADE, parent_link=True, db_column='TAG_NO', primary_key=True, related_name='tags_set')
     content = models.ForeignKey(Content, on_delete=models.CASCADE, db_column='CTNT_NO', related_name='tags')
     sort = models.IntegerField(db_column='SORT', blank=True, null=True)
 
